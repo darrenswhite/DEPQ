@@ -65,14 +65,14 @@ package cs21120.depq;
  *
  * @author Darren White
  */
-@SuppressWarnings("unchecked")
-public class Daw48DEPQ implements DEPQ {
+public class Daw48DEPQ<E extends Comparable<E>> implements DEPQ<E> {
 
 	/**
 	 * Used to store all of the nodes in the queue
 	 * start with a minimum size of 10
 	 */
-	private Node[] nodes = new Node[10];
+	@SuppressWarnings("unchecked")
+	private Node<E>[] nodes = (Node<E>[]) new Node[10];
 
 	/**
 	 * Number of elements in the queue,
@@ -108,7 +108,7 @@ public class Daw48DEPQ implements DEPQ {
 	 * @param c the element to insert into the DEPQ
 	 */
 	@Override
-	public void add(Comparable c) {
+	public void add(E c) {
 		// Don't add a null value
 		// throw an npe instead
 		if (c == null) {
@@ -116,20 +116,21 @@ public class Daw48DEPQ implements DEPQ {
 		}
 
 		// The node to add to the array
-		Node n;
+		Node<E> n;
 		// Two different add cases for odd and even number
 		// of elements (not nodes!)
 		// Increment numElements to keep track of number of elements
 		if (numElements % 2 == 0) {
 			// Number of elements is even, so only have a left element
-			n = new Node(c, null);
+			n = new Node<>(c, null);
 
 			// If the array is full we need to make it larger
 			if (nodes.length == numNodes) {
 				// Create a new array
 				// The minimum length is 10
 				// Otherwise it will expand by 1.5
-				Node[] newNodes = new Node[numNodes + (numNodes >> 1)];
+				@SuppressWarnings("unchecked")
+				Node<E>[] newNodes = (Node<E>[]) new Node[numNodes + (numNodes >> 1)];
 				// Copy the existing array into the new array
 				System.arraycopy(nodes, 0, newNodes, 0, numNodes);
 				// Set the full array as the larger array
@@ -170,7 +171,7 @@ public class Daw48DEPQ implements DEPQ {
 		// Get the parent of the node
 		// Note: last element is at numNodes - 1
 		// so its parent is at (numNodes - 1 - 1) / 2
-		Node parent = nodes[(numNodes - 2) / 2];
+		Node<E> parent = nodes[(numNodes - 2) / 2];
 		if (parent.left.compareTo(c) > 0) {
 			// The parent left element is larger than c
 			// so we have to move c up to the correct position
@@ -199,9 +200,9 @@ public class Daw48DEPQ implements DEPQ {
 		// Its parent index
 		int parentIndex;
 		// The node at the index and its parent
-		Node n, parent;
+		Node<E> n, parent;
 		// Used for the swap (the right element maybe null in odd numElements cases)
-		Comparable c;
+		E c;
 
 		// Keep looping while we have a valid parent
 		// when we reach the root we should stop
@@ -221,7 +222,7 @@ public class Daw48DEPQ implements DEPQ {
 			// then they need to be swapped
 			if (parent.right.compareTo(c) < 0) {
 				// Swap the parent and node right elements (or left if right was null)
-				Comparable tmp = parent.right;
+				E tmp = parent.right;
 
 				parent.right = c;
 
@@ -256,7 +257,7 @@ public class Daw48DEPQ implements DEPQ {
 		// Its parent index
 		int parentIndex;
 		// The node at the index and its parent
-		Node n, parent;
+		Node<E> n, parent;
 
 		// Keep looping while we have a valid parent
 		// when we reach the root we should stop
@@ -269,7 +270,7 @@ public class Daw48DEPQ implements DEPQ {
 			// then they need to be swapped
 			if (parent.left.compareTo(n.left) > 0) {
 				// Swap the parent and node left elements
-				Comparable tmp = parent.left;
+				E tmp = parent.left;
 
 				parent.left = n.left;
 				n.left = tmp;
@@ -304,9 +305,9 @@ public class Daw48DEPQ implements DEPQ {
 	 * @return returns the smallest element in the DEPQ
 	 */
 	@Override
-	public Comparable getLeast() {
+	public E getLeast() {
 		// Get the least element - may be null if queue is empty
-		Comparable min = inspectLeast();
+		E min = inspectLeast();
 
 		// If it is the only element, remove the node and return it
 		// Remember to decrease number of elements as well
@@ -320,7 +321,7 @@ public class Daw48DEPQ implements DEPQ {
 		}
 
 		// Get the last node
-		Node last = nodes[numNodes - 1];
+		Node<E> last = nodes[numNodes - 1];
 
 		// Put the last nodes left element in the root left element
 		nodes[0].left = last.left;
@@ -347,7 +348,7 @@ public class Daw48DEPQ implements DEPQ {
 		// (i * 2) + 1 (for left or + 2 for right)
 		int childIndex;
 		// The current node and it's child
-		Node n, child;
+		Node<E> n, child;
 
 		// Keep looping while we have a child, moving the left element down
 		// the heap until it's in the correct position
@@ -375,7 +376,7 @@ public class Daw48DEPQ implements DEPQ {
 			if (n.left.compareTo(child.left) > 0) {
 
 				// Otherwise swap the node and child left elements
-				Comparable tmp = child.left;
+				E tmp = child.left;
 				child.left = n.left;
 				n.left = tmp;
 
@@ -419,9 +420,9 @@ public class Daw48DEPQ implements DEPQ {
 	 * @return returns the largest element in the DEPQ
 	 */
 	@Override
-	public Comparable getMost() {
+	public E getMost() {
 		// Get the most element - may be null if queue is empty
-		Comparable max = inspectMost();
+		E max = inspectMost();
 
 		if (max == null) {
 			return null;
@@ -438,7 +439,7 @@ public class Daw48DEPQ implements DEPQ {
 		}
 
 		// Get the last node
-		Node last = nodes[numNodes - 1];
+		Node<E> last = nodes[numNodes - 1];
 		// If the last node has a right element that put that
 		// in the root node as the right element otherwise
 		// the last node only has one element which is the left
@@ -467,7 +468,7 @@ public class Daw48DEPQ implements DEPQ {
 		// (i * 2) + 1 (for left or + 2 for right)
 		int childIndex;
 		// The current node and it's child
-		Node n, child;
+		Node<E> n, child;
 
 		// Keep looping while we have a child, moving the left element down
 		// the heap until it's in the correct position
@@ -494,7 +495,7 @@ public class Daw48DEPQ implements DEPQ {
 			// smaller than the child right element then they need to be swapped
 			if (child.right != null && n.right.compareTo(child.right) < 0) {
 				// Otherwise swap the node and child right elements
-				Comparable tmp = child.right;
+				E tmp = child.right;
 				child.right = n.right;
 				n.right = tmp;
 
@@ -526,7 +527,7 @@ public class Daw48DEPQ implements DEPQ {
 	 * @return returns the smallest element in the DEPQ
 	 */
 	@Override
-	public Comparable inspectLeast() {
+	public E inspectLeast() {
 		// If there are elements in the queue
 		// then return the least value is the
 		// left element of the root node otherwise
@@ -542,7 +543,7 @@ public class Daw48DEPQ implements DEPQ {
 	 * @return returns the largest element in the DEPQ
 	 */
 	@Override
-	public Comparable inspectMost() {
+	public E inspectMost() {
 		// No elements in the queue so there
 		// is no most value
 		if (numElements == 0) {
@@ -553,7 +554,7 @@ public class Daw48DEPQ implements DEPQ {
 		// but the right element is null if only one element
 		// is in the queue as we occupy the left element first
 		// then swap if needed
-		Node root = nodes[0];
+		Node<E> root = nodes[0];
 		return numElements == 1 ? root.left : root.right;
 	}
 
@@ -589,13 +590,13 @@ public class Daw48DEPQ implements DEPQ {
 	 * the smallest element in the left element and the largest
 	 * element in the right element
 	 */
-	public static class Node {
+	public static class Node<E> {
 
 		/**
 		 * Left element is the smaller in the interval
 		 * Right element is the larger in the interval
 		 */
-		public Comparable left, right;
+		public E left, right;
 
 		/**
 		 * Create a new node with a left and right element
@@ -603,7 +604,7 @@ public class Daw48DEPQ implements DEPQ {
 		 * @param left  The left element - minimum
 		 * @param right The right element - maximum
 		 */
-		public Node(Comparable left, Comparable right) {
+		public Node(E left, E right) {
 			this.left = left;
 			this.right = right;
 		}
