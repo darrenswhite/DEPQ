@@ -2,35 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ec47cfa-132a-41d1-9f29-33d5a0d3cd91" name="Default" comment="Fixed whole project commit">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CS21120 Assignment 1-v2.pdf" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/DEPQAssignment/cs21120/depq/DEPQ.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/DEPQAssignment/cs21120/depq/DEPQTest.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/DEPQAssignment/cs21120/depq/Daw48DEPQ$Node.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/DEPQAssignment/cs21120/depq/Daw48DEPQ.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Darren.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/fileTemplates/JavaFXApplication.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/fileTemplates/Singleton.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/fileTemplates/code/Dynamic Method Body.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/fileTemplates/includes/File Header.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/fileTemplates/internal/AnnotationType.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/fileTemplates/internal/Class.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/fileTemplates/internal/Enum.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/fileTemplates/internal/Interface.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DEPQAssignment.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs21120/depq/DEPQ.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs21120/depq/DEPQTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs21120/depq/Daw48DEPQ.java" />
     </list>
     <ignored path="DEPQAssignment.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -683,7 +659,7 @@
       <workItem from="1448119407079" duration="530000" />
       <workItem from="1448127507093" duration="4042000" />
       <workItem from="1458681720229" duration="656000" />
-      <workItem from="1458682450337" duration="1773000" />
+      <workItem from="1458682450337" duration="1792000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1447775371827</created>
@@ -706,7 +682,14 @@
       <option name="project" value="LOCAL" />
       <updated>1448131454897</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixed whole project commit">
+      <created>1458684233992</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1458684233992</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -742,7 +725,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46996000" />
+    <option name="totallyTimeSpent" value="47015000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1936" height="1066" extended-state="6" />
