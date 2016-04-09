@@ -6,6 +6,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * Some basics tests of a Double Ended Priority Queue interface DEPQ
  * You will need to change the setUp method to create an instance of your class that implements the interface.
@@ -15,14 +17,13 @@ import java.util.List;
  *
  * @author bpt
  */
-@SuppressWarnings("SuspiciousMethodCalls")
 public class DEPQTest {
 
-	private DEPQ depq;
+	private DEPQ<Integer> depq;
 
 	@Before
 	public void setUp() {
-		depq = new Daw48DEPQ();
+		depq = new Daw48DEPQ<>();
 	}
 
 	/**
@@ -92,7 +93,7 @@ public class DEPQTest {
 				smallest = k;
 			}
 
-			assertEquals(smallest, depq.inspectLeast());
+			assertEquals(smallest, depq.inspectLeast().intValue());
 		}
 
 		// Next randomly add or remove and check inspect least
@@ -119,7 +120,7 @@ public class DEPQTest {
 				}
 			}
 
-			assertEquals(smallest, depq.inspectLeast());
+			assertEquals(smallest, depq.inspectLeast().intValue());
 		}
 	}
 
@@ -144,7 +145,7 @@ public class DEPQTest {
 				largest = k;
 			}
 
-			assertEquals(largest, depq.inspectMost());
+			assertEquals(largest, depq.inspectMost().intValue());
 		}
 
 		// Next randomly add or remove and check inspect most
@@ -171,7 +172,7 @@ public class DEPQTest {
 				}
 			}
 
-			assertEquals(largest, depq.inspectMost());
+			assertEquals(largest, depq.inspectMost().intValue());
 		}
 	}
 
